@@ -51,8 +51,8 @@ create table refeicao_receita(
 -- erro arrumar
 IdRefeicao_Id_Refeicao INT unsigned NOT NULL,
 IdReceita_Id_Receita INT unsigned NOT NULL,
-foreign key(IdRefeicao_Id_Refeicao) references aromas_e_sabores.dificuldades(IdRefeicao),
-foreign key(IdReceita_Id_Receita) references aromas_e_sabores.dificuldades(IdReceita)
+foreign key(IdRefeicao_Id_Refeicao) references aromas_e_sabores.dificuldades(IdRefeicao), -- aqui ta referenciando a tabela dificuldades
+foreign key(IdReceita_Id_Receita) references aromas_e_sabores.dificuldades(IdReceita) -- aqui tbm 
 );
 
 create table dosagem (
