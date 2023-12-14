@@ -773,229 +773,127 @@ values
 ("Aipo"),
 
 ("Abóbora"), 
-
 ("Espinafre"),
-
 ("Queijo de cabra"),  
-
 ("Batatas Doces"), 
-
 ("Amêndoas"), 
-
 ("Purê de abóbora"),
-
 ("Extrato de baunilha");
  
  
 create table refeicao (
-
 IdRefeicao int unsigned not null unique auto_increment,
-
 refeicao varchar(50) not null,
-
 ativo tinyint not null,
-
 primary key (IdRefeicao)
-
 );
  
 insert into refeicao (refeicao, ativo) 
-
 values 
-
 ("Café da Manhã", 1),
-
 ("Almoço", 1),
-
 ("Sobremesa", 1),
-
 ("Café da Tarde", 1),
-
 ("Jantar", 1),
-
 ("Ceia", 1);
  
  
 create table categoria (
-
 IdCategoria int unsigned not null unique auto_increment,
-
 categoria varchar(50) not null,
-
 ativo tinyint not null,
-
 primary key (IdCategoria)
-
 );
  
 insert into categoria (categoria, ativo) 
-
 values 
-
 ("Sopas", 1),
-
 ("Vegetariano", 1),
-
 ("Bolos", 1),
-
 ("Massas", 1),
-
 ("Carnes", 1),
-
 ("Saladas", 1),
-
 ("Molhos", 1),
-
 ("Entradas", 1),
-
 ("Frutos do Mar", 1),
-
 ("Drinks", 1),
-
 ("Saudáveis", 1),
-
 ("Lanches da tarde", 1),
-
 ("Doces", 1),
-
 ("Gelatos", 1),
-
 ("Tortas Salgadas", 1);
  
 create table refeicao_receita(
-
 IdRefeicao int unsigned not null,
-
 IdReceita int unsigned not null,
-
 primary key(IdRefeicao, IdReceita),
-
 foreign key(IdRefeicao) references aromas_e_sabores.refeicao(IdRefeicao),
-
 foreign key(IdReceita) references aromas_e_sabores.receita(IdReceita)
-
 );
  
 insert into refeicao_receita (IdRefeicao, IdReceita) 
-
 values  
-
 (3, 1),
-
 (5,2),
-
 (2, 3),
-
 (6, 4),
-
 (3, 5),
-
 (2, 6),
-
 (5, 7),
-
 (2, 8),
-
 (2, 9),
-
 (5, 10),
-
 (2, 11),
-
 (1, 12),
-
 (5, 13),
-
 (6, 14),
-
 (3, 15),
-
 (3, 16),
-
 (5, 17),
-
 (3, 18),
-
 (4, 19),
-
 (5, 20);
  
 create table categoria_receita(
-
 IdCategoria int unsigned not null,
-
 IdReceita int unsigned not null,
-
 primary key(IdCategoria, IdReceita),
-
 foreign key(IdCategoria) references aromas_e_sabores.categoria(IdCategoria),
-
 foreign key(IdReceita) references aromas_e_sabores.receita(IdReceita)
-
 );
  
 insert into categoria_receita (IdReceita, IdCategoria) 
-
 values 
-
 (1, 13),
-
 (2, 8),
-
 (3, 2),
-
 (4, 6),
-
 (5, 13),
-
 (6, 9),
-
 (7, 5),
-
 (8, 5),
-
 (9, 8),
-
 (10, 9),
-
 (11, 11), 
-
 (12, 8),
-
 (13, 10),
-
 (14, 8),
-
 (15, 13),
-
 (16, 3),
-
 (17, 10),
-
 (18, 13),
-
 (19, 13),
-
 (20, 8);
  
 create table receita_usuario(
-
 IdComentario int unsigned not null unique auto_increment,
-
 IdReceita int unsigned not null, 
-
 IdUsuario int unsigned not null,
-
 comentario longtext, 
-
 nota tinyint, 
-
 primary key(IdComentario),
-
 foreign key(IdReceita) references receita(IdReceita),
-
 foreign key(IdUsuario) references usuario(IdUsuario)
-
 );
  
 insert into receita_usuario (IdReceita, IdUsuario, comentario, nota) 
