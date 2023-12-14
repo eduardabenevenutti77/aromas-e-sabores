@@ -447,331 +447,175 @@ Deixe a torta de abóbora esfriar antes de cortar. Sirva com chantilly ou sorvet
 Disponha os dedos de bruxa em um prato e, se desejar, sirva com ketchup ou molho barbecue para mergulhar.'),
 
 ('Pré-aqueça o forno a 180°C. Forre uma forma de muffins com forminhas de papel. Em uma tigela grande, misture o purê de abóbora, açúcar, óleo, ovos e extrato de baunilha. Em outra tigela, misture a farinha de trigo, fermento em pó, bicarbonato de sódio, sal, canela, noz-moscada e cravo. Adicione os ingredientes secos à mistura de abóbora e mexa até que tudo esteja bem incorporado. Encha cada forminha de muffin cerca de 2/3 com a massa. Asse no forno pré-aquecido por 20-25 minutos, ou até que um palito inserido no centro saia limpo. Deixe os cupcakes esfriarem completamente antes de decorar. Em uma tigela, bata o cream cheese e a manteiga até ficar cremoso. Adicione o açúcar de confeiteiro aos poucos e continue batendo até obter uma consistência suave. Misture o extrato de baunilha. Use um saco de confeitar para decorar os cupcakes com a cobertura de cream cheese. Se desejar, polvilhe um pouco de canela ou noz-moscada por cima da cobertura. Esses cupcakes de abóbora com cobertura de cream cheese são uma delícia outonal que certamente agradará a todos. Sirva-os em festas, eventos ou simplesmente como uma guloseima caseira. Aproveite!'),
-
 ('Em uma panela, misture o leite condensado, o coco ralado, a manteiga e o leite de coco.
-
 Leve a mistura ao fogo médio, mexendo constantemente para evitar que grude no fundo da panela. Continue cozinhando e mexendo até a mistura engrossar e atingir uma consistência cremosa. Quando atingir a consistência desejada, retire do fogo e deixe esfriar um pouco. Transfira a cocada cremosa para um recipiente ou porções individuais. Deixe esfriar completamente antes de servir. Você também pode adicionar outros ingredientes, como cravo ou canela, para dar um toque especial ao sabor da cocada cremosa. Lembre-se de ajustar as quantidades de acordo com seu gosto pessoal. Bom apetite!');
  
 create table menu_receita(
-
 IdMenu int unsigned not null,
-
 IdReceita int unsigned not null,
-
 primary key(IdMenu, IdReceita),
-
 foreign key(IdMenu) references aromas_e_sabores.menu(IdMenu),
-
 foreign key(IdReceita) references aromas_e_sabores.receita(IdReceita)
-
 );
  
 insert into menu_receita(IdMenu, IdReceita) 
-
 values 
-
 (9, 1),
-
 (9, 2),
-
 (8, 3),
-
 (8, 4),
-
 (1, 5),
-
 (10, 6),
-
 (1, 7),
-
 (9, 8),
-
 (9, 9),
-
 (9, 10),
-
 (1, 11),
-
 (9, 12),
-
 (9, 13),
-
 (9, 14),
-
 (9, 15);
  
  
 create table dosagem (
-
 IdDosagem int unsigned not null unique auto_increment,
-
 dosagem varchar(45) not null,
-
 abreviacao varchar(45),
-
 primary key (IdDosagem)
-
 );
  
 insert into dosagem (dosagem, abreviacao) 
-
 values 
-
 ("Colher de Chá", "cc"), 
-
 ("Colher de Sopa", "cs"), 
-
 ("Xícara", "xíc"),
-
 ("Gramas", "g"),
-
 ("Litros", "l"),
-
 ("Mililitros", "ml"), 
-
 ("Pitada", "pit"),
-
 ("Toque", "toque"), 
-
 ("Fio", "fio"),
-
 ("Caixa", "cx"), 
-
 ("Kilo", "kg"), 
-
 ("Raspas", "rasp"), 
-
 ("Rack", "rack"), 
-
 ("Maço", "maço"), 
-
 ("Dente", "dente"), 
-
 ("Lata", "lata"), 
-
 ("Pau", "p"),
-
 ("Casca", "casca");
  
  
 create table ingrediente (
-
 IdIngrediente int unsigned not null unique auto_increment,
-
 ingrediente text not null,
-
 primary key (IdIngrediente)
-
 );
  
 insert into ingrediente (ingrediente) 
-
 values    
-
 ("Leite condensado"),     
-
 ("Creme de leite"), 
-
 ("Margarina"),                                                                                                                           
-
 ("Nescau"), 
-
 ("Ovo"),
-
 ("Tambaqui"), 
-
 ("Tomate"), 
-
 ("Pimentão"), 
-
 ("Salsinha desidratada"), 
-
 ("Alho"), 
-
 ("Cebola média"), 
-
 ("Farofa pronta"), 
-
 ("Azeite"), 
-
 ("Farinha de trigo"), 
-
 ("Água gelada"), 
-
 ("Manteiga gelada, cortada em cubos"), 
-
 ("Sal"), 
-
 ("Leite"), 
-
 ("Cenoura"), 
-
 ("Manteiga"),
-
 ("Mel"),
-
 ("Sal e pimenta a gosto"),
-
 ("Salsa fresca"),
-
 ("Claras de ovos"),
-
 ("Açúcar"), 
-
 ("Vinagre de vinho branco"), 
-
 ("Extrato de baunilha"), 
-
 ("Frutas frescas"), 
-
 ("Camarões"), 
-
 ("Abacaxi"), 
-
 ("Azeite de oliva"), 
-
 ("Suco de limão"), 
-
 ("Costelas bovinas"), 
-
 ("Café moído"), 
-
 ("Açúcar mascavo"), 
-
 ("Páprica defumada"), 
-
 ("Alho em pó"), 
-
 ("Cebola em pó"), 
-
 ("Óleo vegetal"),  
-
 ("Alcatra"), 
-
 ("Orégano"), 
-
 ("Pimenta vermelha"), 
-
 ("Vinagre de vinho tinto"), 
-
 ("Queijo coalho"), 
-
 ("Pimenta calabresa"), 
-
 ("Arroz"), 
-
 ("Aspargos"), 
-
 ("Vinho branco seco"), 
-
 ("Caldo de legumes"), 
-
 ("Queijo parmesão ralado"), 
-
 ("Berinjela"), 
-
 ("Ricota"), 
-
 ("Molho de tomate"), 
-
 ("Queijo muçarela ralado"), 
-
 ("Manjericão"), 
-
 ("Peito de frango cozido e desfiado"), 
-
 ("Caldo de frango"), 
-
 ("Requeijão"), 
-
 ("Limão Tahiti"), 
-
 ("Limão siciliano"), 
-
 ("Manga"), 
-
 ("Maracujá"), 
-
 ("Cachaça"), 
-
 ("Goma de Tapioca"), 
-
 ("Água"), 
-
 ("Pitaya"),  
-
 ("Espirulina em pó"), 
-
 ("Açaí em pó"),  
-
 ("Cúrcuma"),  
-
 ("Coco ralado"), 
-
 ("Frutas"),  
-
 ("Açúcar cristal"), 
-
 ("Leite de coco"),
-
 ("Milho verde"),
-
 ("Fubá"),
-
 ("Fermento em pó"), 
-
 ("Cravos-da-índia"),
-
 ("Canela"), 
-
 ("Gengibre"), 
-
 ("Laranja"),
-
 ("Maçã"), 
-
 ("Leite"), 
-
 ("Canela em pó"),
-
 ("Glucose de milho"), 
-
 ("Corante alimentício vermelho"), 
-
 ("Queijo gruyère"),  
-
 ("Queijo emmental"), 
-
 ("Vinho branco seco"), 
-
 ("Maisena"), 
-
 ("Noz-moscada"), 
-
 ("Pimenta preta"), 
-
 ("Baguete"), 
-
 ("Vegetais crus"), 
-
 ("Filés mignon"), 
-
 ("Vinho tinto seco"), 
-
 ("Ervas frescas"), 
-
 ("Morango"), 
-
 ("Chocolate meio amargo ou ao leite"), 
-
 ("Amêndoas, coco ralado, granulado"), 
-
 ("Peru inteiro"), 
-
 ("Páprica"), 
-
 ("Aipo"),
-
 ("Abóbora"), 
 ("Espinafre"),
 ("Queijo de cabra"),  
