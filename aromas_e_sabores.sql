@@ -3,17 +3,17 @@ create database aromas_e_sabores;
 use aromas_e_sabores;
 
 create table aromas_e_sabores.usuario ( 
-	IdUsuario int unsigned not null unique auto_increment,
-    nome varchar(255) not null,
-    email varchar(255) not null,
-    dataNascimento date,
-    senha blob,
-    genero tinyint,
-    salt varchar(590) not null,
-    dataInscricao datetime not null,
-    uuid char(45),
-    ativo tinyint not null,
-    primary key (IdUsuario)
+IdUsuario int unsigned not null unique auto_increment,
+nome varchar(255) not null,
+email varchar(255) not null,
+dataNascimento date,
+senha blob,
+genero tinyint,
+salt varchar(590) not null,
+dataInscricao datetime not null,
+uuid char(45),
+ativo tinyint not null,
+primary key (IdUsuario)
 );
  
 insert into usuario (nome, email, dataNascimento, senha, genero, salt, dataInscricao, uuid, ativo) 
